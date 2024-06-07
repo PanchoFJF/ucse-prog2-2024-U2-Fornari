@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.CalculadorCombustibleTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-06-07T23:15:14" hostname="MSI" time="0.015">
+  <properties/>
+  <testcase name="calcularCombustibleAvionComercialTest()" classname="org.example.CalculadorCombustibleTest" time="0.015"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

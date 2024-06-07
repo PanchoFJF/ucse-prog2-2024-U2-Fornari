@@ -1,5 +1,6 @@
 package org.example;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
@@ -7,18 +8,16 @@ import static org.mockito.Mockito.when;
 
 class AvionTest {
 
-    Avion avion = mock(Avion.class); {
-        avion.capacidadCombustible = 200;
-        avion.consumoCombustible = 150;
+    private AvionComercial avion = new AvionComercial(300, 125);
+    @Test
+    void getCapacidadCombustibleTest() {
+        int res = avion.getCapacidadCombustible();
+        Assertions.assertEquals(res, 300);
     }
 
     @Test
-    void getCapacidadCombustible() {
-
-        when(avion.capacidadCombustible()).thenReturn(200);
-    }
-
-    @Test
-    void getConsumoCombustible() {
+    void getConsumoCombustibleTest() {
+        int res = avion.getConsumoCombustible();
+        Assertions.assertEquals(res, 125);
     }
 }
