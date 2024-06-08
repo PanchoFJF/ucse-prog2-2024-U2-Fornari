@@ -14,8 +14,17 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     testImplementation 'org.mockito:mockito-core:4.2.0'
     testRuntimeOnly 'org.mockito:mockito-core:4.2.0'
+    implementation 'org.openjdk.jmh:jmh-core:1.33'
+    annotationProcessor 'org.openjdk.jmh:jmh-generator-annprocess:1.33'
 }
 
 test {
     useJUnitPlatform()
+}
+
+task runJmh(type: JavaExec) {
+    main = 'org.openjdk.jmh.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['-f', '1', '-wi', '5', '-i', '5', '-r',
+            '5', '-t', '1', '.*Benchmark.*']
 }
