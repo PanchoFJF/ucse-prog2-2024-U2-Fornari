@@ -48,7 +48,7 @@ public class CompletableFutureEjercicio {
             }
         });
 
-        sumaFuture.thenAccept(sum -> System.out.println("La suma de los cuatro valores es: " + sum));
+        sumaFuture.thenAccept(suma -> System.out.println("La suma de los cuatro valores es: " + suma));
 
         sumaFuture.get();
     }

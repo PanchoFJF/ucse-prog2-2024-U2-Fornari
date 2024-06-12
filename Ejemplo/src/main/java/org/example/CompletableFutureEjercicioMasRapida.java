@@ -38,18 +38,12 @@ public class CompletableFutureEjercicioMasRapida {
             return num;
         });
 
-        CompletableFuture<Void> tareas = CompletableFuture.allOf(tarea1, tarea2, tarea3, tarea4);
+        CompletableFuture<Object> primera = CompletableFuture.anyOf(tarea1, tarea2, tarea3, tarea4);
 
-        CompletableFuture<Integer> sumaFuture = tareas.thenApply(v -> {
-            try {
-                return tarea1.get() + tarea2.get() + tarea3.get() + tarea4.get();
-            } catch (InterruptedException | ExecutionException e) {
-                throw new RuntimeException(e);
-            }
+        primera.thenAccept(nro -> {
+            System.out.println("La primera tarea generó el nro: " + nro);
         });
 
-        sumaFuture.thenAccept(sum -> System.out.println("La suma de los cuatro valores es: " + sum));
-
-        sumaFuture.get();
+        primera.get();
     }
 }
